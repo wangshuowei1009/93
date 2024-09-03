@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Meta-print</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 4 CSS and JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/stylesbuy.css" rel="stylesheet" />
+
+    <!-- 保留原有的style -->
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* loading 浮窗的样式 */
+        .loading-popup {
+            display: none;
+            /* 初始状态隐藏 */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 220px;
+            /* 根据loading.html的大小 */
+            height: 220px;
+            /* 根据loading.html的大小 */
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 3000;
+            /* 确保浮窗在遮罩层之上 */
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .loading-popup iframe {
+            width: 220px;
+            /* 根据loading.html的大小 */
+            height: 220px;
+            /* 根据loading.html的大小 */
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        /* 遮罩层的样式 */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            /* 确保在 loading 浮窗下方且高于导航栏 */
+        }
+
+        /* 商品栏背景样式 */
+        .product-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 60px 0;
+            border-radius: 10px;
+        }
+
+        /* iframe 容器样式 */
+        .modal-lg {
+            max-width: 80%;
+            height: auto;
+            /* 使用 auto 让高度根据内容自适应 */
+        }
+
+        .modal-body {
+            padding: 0;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 75%;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transform-origin: top left;
+        }
+
+        /* 关闭按钮样式 */
+    </style>
+</head>
+
+<body id="page-top">
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Loading 浮窗 -->
+    <div class="loading-popup" id="loadingPopup">
+        <iframe src="loading.html"></iframe>
+    </div>
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="../homepage/homepage.html">
+                <img src='assets/img/1.svg' alt="Logo" style="height: 30px; margin-right: 10px;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="homepage.html" style="font-weight: 700;">About</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="buy.html" style="font-weight: 700;">Buy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sell.html" style="font-weight: 700;">My NFT</a></li>
+                    <li id="wallet" class="nav-item"><a class="nav-link" href="#signup"
+                            style="font-weight: 700;">Connect Wallet</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="background-color" style="padding-top: 6rem; padding-bottom: 6rem;height: 500px;">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder gradient-text" style="font-size: 4rem;">NFT ON SELL</h1>
+                <p class="lead fw-normal  mb-0 gradient-text" style="font-size: 1.5rem;">Unlock Your Creativity—Own
+                    Exclusive 3D Print Designs as NFTs Today!</p>
+                <div id="balance" class="balance-display"></div>
+            </div>
+        </div>
+    </header>
+    <div class="gradient-bar"></div>
+
+    <!-- Section-->
+    <section class="py-5 product-section">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+                id="product-list">
+                <!-- Product cards will be inserted here by JavaScript -->
+            </div>
+            <nav>
+                <ul class="pagination justify-content-center" id="pagination">
+                    <!-- Pagination buttons will be inserted here by JavaScript -->
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <div class="gradient-bar"></div>
+
+    <!-- 模态框结构 -->
+    <div class="modal fade" id="webpageModal" tabindex="-1" role="dialog" aria-labelledby="webpageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- 使用iframe加载原网页 -->
+                    <div class="iframe-container">
+                        <iframe src="test2-1.html" id="testIframe"></iframe>
+                    </div>
+                    <!-- 将关闭按钮放在模态框的右上角 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="position: absolute; top: 10px; right: 10px; z-index: 1;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="js/scripts.js"></script>
+    <script src="bundle.js"></script>
+
+    <script>
+        const productList = document.getElementById('product-list');
+        const pagination = document.getElementById('pagination');
+        const productsPerPage = 16;
+        const totalProducts = 100;
+
+        // Function to display a specific page of products
+        function displayPage(page) {
+            productList.innerHTML = '';
+            const start = (page - 1) * productsPerPage;
+            const end = start + productsPerPage;
+            for (let i = start; i < end; i++) {
+                loadCard();
+            }
+
+            // Bind click event to each Buy button
+            document.querySelectorAll('.buy-btn').forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // 显示遮罩层和加载浮窗
+                    var overlay = document.getElementById('overlay');
+                    var loadingPopup = document.getElementById('loadingPopup');
+                    overlay.style.display = 'block';
+                    loadingPopup.style.display = 'block';
+
+                    // 模拟操作，3秒后自动关闭浮窗和遮罩层
+                    setTimeout(function () {
+                        loadingPopup.style.display = 'none';
+                        overlay.style.display = 'none';
+                        alert('Purchase successful!');
+                    }, 3000);
+                });
+            });
+        }
+
+        // Function to load card from card.html
+        function loadCard() {
+            fetch('buycard.html')
+                .then(response => response.text())
+                .then(data => {
+                    productList.innerHTML += data;
+                })
+                .catch(error => console.log('Error loading card:', error));
+        }
+
+        // Function to setup pagination
+        function setupPagination(totalProducts, productsPerPage, currentPage) {
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
+            pagination.innerHTML = '';
+
+            const createPageItem = (text, page) => {
+                const li = document.createElement('li');
+                li.className = 'page-item';
+                if (page === currentPage) {
+                    li.classList.add('active');
+                }
+                const a = document.createElement('a');
+                a.className = 'page-link';
+                a.href = '#';
+                a.textContent = text;
+                a.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    displayPage(page);
+                    setupPagination(totalProducts, productsPerPage, page); // Refresh pagination
+                });
+                li.appendChild(a);
+                return li;
+            };
+
+            // Create pagination with ellipses
+            if (currentPage > 1) {
+                pagination.appendChild(createPageItem('First', 1)); // First button
+            }
+            if (currentPage > 3) {
+                const ellipsis = document.createElement('li');
+                ellipsis.className = 'page-item';
+                ellipsis.innerHTML = '<span class="page-link">...</span>';
+                pagination.appendChild(ellipsis);
+            }
+            for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
+                pagination.appendChild(createPageItem(i, i));
+            }
+            if (currentPage < totalPages - 2) {
+                const ellipsis = document.createElement('li');
+                ellipsis.className = 'page-item';
+                ellipsis.innerHTML = '<span class="page-link">...</span>';
+                pagination.appendChild(ellipsis);
+            }
+            if (currentPage < totalPages) {
+                pagination.appendChild(createPageItem('Last', totalPages)); // Last button
+            }
+        }
+
+        // Initialize first page and pagination
+        displayPage(1);
+        setupPagination(totalProducts, productsPerPage, 1);
+    </script>
+
+</body>
+
+</html>

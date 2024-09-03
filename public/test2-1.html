@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>NFT Information</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <style>
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+            height: 100vh;
+            /* 确保容器充满整个视口高度 */
+            display: flex;
+        }
+
+        .row {
+            margin-bottom: 0;
+            flex: 1;
+            /* 让 row 充满父容器 */
+            display: flex;
+        }
+
+        #info-tagline,
+        #info-content {
+            height: 100%;
+            /* 确保两边高度一致 */
+        }
+
+        #info-tagline {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.8), rgba(255, 69, 0, 0.8));
+            color: #ffffff;
+            padding: 4%;
+            text-align: left;
+            border-radius: 0rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* 确保内容垂直居中 */
+        }
+
+        #info-content {
+            background: #f4f4f4;
+            border-radius: 0.5rem;
+            padding: 3%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* 确保内容垂直居中 */
+        }
+
+        .form-group {
+            margin-top: 5%;
+        }
+
+        .control-label {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .custom-btn-p,
+        .custom-btn-s,
+        #buyButton {
+            padding: 15px 30px;
+            font-size: 1.25rem;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ff5f6d, #ffc371);
+            width: 270px;
+            margin: 20px auto;
+        }
+
+        #buyButton:hover {
+            animation: gradient-reverse-s 0.5s forwards;
+            color: black;
+            box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        #buyButton:active {
+            background: linear-gradient(135deg, #d84315, #e57373);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(1px);
+        }
+
+        @keyframes gradient-reverse-s {
+            0% {
+                background: linear-gradient(135deg, #ff5f6d, #ffc371);
+                color: white;
+            }
+
+            100% {
+                background: linear-gradient(135deg, #ffc371, #ff5f6d);
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid"> <!-- open container-fluid -->
+
+        <div class="row"> <!-- open row -->
+
+            <div id="info-tagline" class="col-12 col-md-4">
+                <div class="form-tagline" style="text-align: center;">
+                    <i class="fa fa-info-circle fa-5x" style="display: block; margin: 0 auto;"></i> <!-- Icon -->
+                    <br>
+                    <br>
+                    <h2>NFT Information</h2>
+                    <br>
+                    <p id="description" class="lead">"View and learn about this unique NFT item and explore your
+                        purchase options!"</p>
+                    <br>
+                    <br>
+                    <img src="./nft-preview.gif" alt="NFT Preview" style="width: 100%; margin-top: 20px;">
+                </div>
+            </div>
+
+            <div id="info-content" class="col-12 col-md-8">
+                <!-- NFT Name -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">NFT Name:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="nftName">Amazing 3D Artwork</p>
+                    </div>
+                </div>
+
+                <!-- NFT Description -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Description:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="nftDescription">This is an amazing 3D artwork created by a talented artist.</p>
+                    </div>
+                </div>
+
+                <!-- External URL -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">External URL (optional):</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="externalUrl"><a href="#">External Resource</a></p>
+                    </div>
+                </div>
+
+                <!-- Dimensions: Width, Height, Depth -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Dimensions:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="nftDimensions">Width: 10cm, Height: 15cm, Depth: 8cm</p>
+                    </div>
+                </div>
+
+                <!-- Recommended Material -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Recommended Material:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="nftMaterial">PLA Plastic</p>
+                    </div>
+                </div>
+
+                <!-- Recommended Layer Height -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Recommended Layer Height (optional):</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="recommendedLayerHeight">0.2mm</p>
+                    </div>
+                </div>
+
+                <!-- Seller Fee Basis Points -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">Seller Fee Basis Points:</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="sellerFee">500</p>
+                    </div>
+                </div>
+
+                <!-- STL Description -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">STL Description (optional):</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="stlDescription">High-quality 3D model for printing</p>
+                    </div>
+                </div>
+
+                <!-- OBJ Description -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">OBJ Description (optional):</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="objDescription">Detailed OBJ file for rendering</p>
+                    </div>
+                </div>
+
+                <!-- 3MF Description -->
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label class="control-label">3MF Description (optional):</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <p id="threeMfDescription">Optimized 3MF file for 3D printing</p>
+                    </div>
+                </div>
+
+                <!-- Purchase Button -->
+                <button id="buyButton" class="custom-btn-s">Buy Now</button>
+
+            </div> <!-- close info content div -->
+
+        </div> <!-- close row -->
+
+    </div> <!-- close container-fluid -->
+
+</body>
+
+</html>

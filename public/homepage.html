@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Meta-print</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styleshomepage.css" rel="stylesheet" />
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="5e2ESR8Ycmos6g3gAKr1Jvwye8sW4U1u/cAKulfVJnkakCcMqhOudbtPnvJ+nbv7" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p+pbmPbYxM1q7rKfu8fz5v4+3BSB2KJeWEchxgVKB6F7dOEx0d/7NY0YcDA5a6+m71ZUpgP6L7Pp5jz6cGL7Qg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    -->
+</head>
+<style>
+    /* 卡片样式 */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        /* 卡片上升效果 */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        /* 添加阴影效果 */
+    }
+
+    /* 图标样式 */
+    .card-body i {
+        transition: color 0.3s ease;
+        /* 颜色变化的过渡效果 */
+    }
+
+    .card-body:hover i {
+        color: #00c6ff;
+        /* 图标悬停时变为蓝色 */
+    }
+
+    /* 文字样式 */
+    .card-body h4 {
+        transition: color 0.3s ease;
+    }
+
+    .card-body:hover h4 {
+        color: #00c6ff;
+        /* 标题悬停时变为蓝色 */
+    }
+
+
+    /* 内容容器样式 */
+    .content-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        /* 面板之间的间距 */
+    }
+
+    .panel {
+        background-color: #2c2c2c;
+        padding: 20px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        color: white;
+    }
+
+    /* 悬停效果 */
+    .panel:hover {
+        background-color: #444;
+        transform: scale(1.05);
+        /* 轻微放大效果 */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* 标题样式 */
+    .panel h2 {
+        transition: color 0.3s ease;
+    }
+
+    /* 悬停时标题颜色变化 */
+    .panel:hover h2 {
+        color: #00c6ff;
+        /* 例如，悬停时变为浅蓝色 */
+    }
+
+    /* 悬停时段落文字颜色变化 */
+    .panel:hover p {
+        color: #ccc;
+        /* 悬停时段落文字变为浅灰色 */
+    }
+
+    /* about-section 整体样式 */
+    .about-section {
+        position: relative;
+        padding: 60px 0;
+        transition: all 0.3s ease;
+    }
+
+    .overlay-box {
+        background-color: rgba(44, 44, 44, 0.8);
+        /* 半透明背景色 */
+        padding: 30px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 悬停效果 */
+    .about-section:hover .overlay-box {
+        background-color: rgba(68, 68, 68, 0.9);
+        /* 变深的背景色 */
+        transform: scale(1.02);
+        /* 轻微放大效果 */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-section h2,
+    .about-section p {
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* 悬停时内容变化 */
+    .about-section:hover h2 {
+        color: #00c6ff;
+        /* 标题悬停时变为浅蓝色 */
+        transform: scale(1.05);
+        /* 标题轻微放大 */
+    }
+
+    .about-section:hover p {
+        color: #ccc;
+        /* 段落文字悬停时变为浅灰色 */
+        transform: scale(1.02);
+        /* 段落文字轻微放大 */
+    }
+</style>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#page-top">
+                <img src='assets/img/1.svg' alt="Logo" style="height: 30px; margin-right: 10px;">
+
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about" style="font-weight: 700;">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="buy.html" style="font-weight: 700;">Buy</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="sell.html" style="font-weight: 700;"> My NFT</a>
+                    </li>
+                    <li id="wallet" class="nav-item"><a class="nav-link" style="font-weight: 700;">Connect
+                            Wallet</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <video class="video-background" autoplay loop muted>
+            <source src="assets/img/1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center">
+                <div class="text-center">
+                    <br>
+
+                    <br>
+                    <br>
+
+                    <h1 class="mx-auto my-0 text-uppercase" style="font-size: 8rem;">Meta print</h1>
+                    <br>
+
+                    <h2 class="text-white-50 mx-auto mt-2 mb-5" style="
+                        background: linear-gradient(to right, rgba(0, 123, 255, 0.8), rgba(40, 167, 69, 0.8), rgba(255, 193, 7, 0.8)); /* 从蓝色到绿色再到黄色的渐变 */
+                        padding: 20px 40px; /* 增加内边距 */
+                        border-radius: 25px; /* 圆角边框 */
+                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 柔和的阴影效果 */
+                        backdrop-filter: blur(10px); /* 增加模糊效果 */
+                        max-width: 80%; /* 限制盒子宽度 */
+                        margin: 0 auto; /* 居中对齐 */
+                        color: #ffffff; /* 白色文字 */
+                        font-size: 1.5rem; /* 字体大小 */
+                        text-align: center; /* 居中文本 */
+                    ">
+                        Transforms 3D data into NFTs and physical artworks
+                        through 3D printing, merging digital and physical art for innovative
+                        expression and interaction.
+                    </h2>
+                    <br>
+                    <br>
+
+                    <a class="btn btn-primary btn-custom" href="buy.html" style="margin-right: 200px;">Buy
+                        NFT</a>
+                    <a class="btn btn-primary btn-custom" href="sell.html" style="margin-left: 200px;">Sell
+                        NFT</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="gradient-bar"></div>
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="overlay-box">
+                        <h2 class="mx-auto my-0 text-uppercase" style="font-weight: 800;">What is Meta-print</h2>
+                        <br>
+                        <p class="text-white-50"
+                            style="text-align: center; margin: 0 auto; max-width: 1600px; line-height: 1.5; font-size: 1.25rem;">
+                            Metaprint is a pioneering project that transforms 3D data into NFTs and converts these NFTs
+                            into
+                            physical artworks through 3D printing. By merging digital and physical art, Metaprint offers
+                            innovative forms of artistic expression and interaction.
+                            <br><br><br>
+                            This unique platform enhances the value and significance of digital assets, providing
+                            artists
+                            and collectors with a seamless bridge between the virtual and real worlds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-bar"></div>
+    <!-- Projects-->
+
+    <div class="background-section">
+
+        <div class="content-container">
+            <div class="panel">
+                <h2 style="font-weight: 800;">Buy NFT</h2>
+                <p class="text-white-50"
+                    style="text-align: center; margin: 0 auto; max-width: 1600px; line-height: 1.5; font-size: 1.1rem;">
+                    On Metaprint, buying NFTs is easy and secure. Browse unique digital artworks, make your purchase,
+                    and
+                    optionally
+                    transform your NFT into a physical piece with our high-quality 3D printing service. Enjoy the best
+                    of both
+                    digital and
+                    physical worlds.
+                </p>
+            </div>
+            <div class="panel">
+                <h2 style="font-weight: 800;">Sell NFT</h2>
+                <p class="text-white-50"
+                    style="text-align: center; margin: 0 auto; max-width: 1600px; line-height: 1.5; font-size: 1.1rem;">
+                    On Metaprint, selling your NFTs is simple and rewarding. Upload your digital artwork, mint it as a
+                    unique
+                    NFT, and list
+                    it on our marketplace. Reach a global audience of collectors and enthusiasts, and enhance your art’s
+                    value
+                    by offering
+                    the option to transform it into a physical piece with our 3D printing service.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="gradient-bar"></div>
+
+    <!-- Contact-->
+    <section class="contact-section bg-black">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-8 mb-3 text-center">
+                    <h2 class="text-white text-uppercase" style="font-size: 3rem; font-weight: 700;">TO CONTACT US
+                    </h2>
+                    <hr class="my-4 mx-auto" />
+                </div>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marked-alt fa-2x mb-3" style="color: black;"></i>
+                            <h4 class="text-uppercase m-0" style="font-size: 1.5rem;">Address</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50" style="font-size: 1.0rem;">4-chōme-5-9
+                                NipponbashiNaniwa
+                                Ward, Osaka, 556-0005
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-envelope fa-2x mb-3" style="color: black;"></i>
+                            <h4 class="text-uppercase m-0" style="font-size: 1.5rem;">Email</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50" style="font-size: 1.0rem;">metaprint100@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <div class="card py-4 h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-2x mb-3" style="color: black;"></i>
+                            <h4 class="text-uppercase m-0" style="font-size: 1.5rem;">Phone</h4>
+                            <hr class="my-4 mx-auto" />
+                            <div class="small text-black-50" style="font-size: 1.0rem;">xxxxxxxxx</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="social d-flex justify-content-center">
+                <a class="mx-2" href="#!"><i class="fa-brands fa-twitter"></i></a>
+                <a class="mx-2" href="#!"><i class="fa-brands fa-facebook"></i></a>
+                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer bg-black small text-center text-white-50">
+        <!--<div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div>-->
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+    <div class="gradient-bar"></div>
+
+    <script src="bundle.js"></script>
+</body>
+
+
+
+
+
+</html>

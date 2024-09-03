@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Meta-print</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/stylesbuy.css" rel="stylesheet" />
+</head>
+
+<style>
+    .masthead {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .masthead::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: -1;
+    }
+
+    .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(1.0);
+    }
+
+    .background-section {
+        background-image: url('assets/img/2.jpg');
+        background-size: cover;
+        background-position: center -80px;
+        background-repeat: no-repeat;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .main-title {
+        font-size: 36px;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        width: 100%;
+    }
+
+    .btn-show-balance {
+        background: linear-gradient(90deg, rgba(0, 123, 255, 1) 0%, rgba(0, 230, 118, 1) 100%);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 0.25rem;
+        transition: background 0.3s ease-in-out;
+        margin-top: 4rem;
+    }
+
+    .btn-show-balance:hover {
+        background: linear-gradient(90deg, rgba(0, 230, 118, 1) 0%, rgba(0, 123, 255, 1) 100%);
+        cursor: pointer;
+    }
+
+    .gradient-bar {
+        width: 100%;
+        height: 20px;
+        background: linear-gradient(to right, #007AFF, #4CD964, #FFCC00, #FF3B30);
+        border-top: 1px solid #222;
+        border-bottom: 1px solid #222;
+    }
+
+    .gradient-text {
+        background: linear-gradient(to right, #007AFF, #4CD964, #FFCC00);
+        -webkit-background-clip: text;
+        color: transparent;
+        font-size: inherit;
+    }
+
+    .modal-lg {
+        max-width: 80%;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .iframe-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        background: #f0f0f0;
+    }
+
+    .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        transform-origin: top left;
+    }
+
+    /* 按钮样式 */
+    .action-btn-details,
+    .action-btn-remove,
+    .action-btn-list {
+        display: inline-block;
+        width: 120px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        font-family: 'Nunito', sans-serif;
+    }
+
+    /* 绿色渐变按钮 - Details */
+    .action-btn-details {
+        background: linear-gradient(135deg, #f4d03f, #2ecc71) !important;
+    }
+
+    .action-btn-details:hover {
+        background: linear-gradient(135deg, #2ecc71, #f4d03f) !important;
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    /* 红色渐变按钮 - Cancel */
+    .action-btn-remove {
+        background: linear-gradient(135deg, #ff5f6d, #ffc371) !important;
+    }
+
+    .action-btn-remove:hover {
+        background: linear-gradient(135deg, #ffc371, #ff5f6d) !important;
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    /* 蓝色渐变按钮 - List */
+    .action-btn-list {
+        background: linear-gradient(45deg, #56ccf2, #2f80ed);
+    }
+
+    .action-btn-list:hover {
+        background: linear-gradient(45deg, #2f80ed, #56ccf2);
+        transform: translateY(-2px) scale(1.05);
+    }
+
+    /* 保证按钮占据相同大小并不会超出卡片 */
+    .card-footer .d-flex a {
+        flex: 1;
+        margin: 0 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 卡片设计 */
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 图片样式 */
+    .card-img-top {
+        border-bottom: 1px solid #eee;
+        border-radius: 10px 10px 0 0;
+    }
+
+    /* 价格样式 */
+    .price {
+        font-size: 1.25rem;
+        color: #333;
+        font-weight: bold;
+    }
+
+    /* 未出售卡片背景 - 浅灰色 */
+    .card.in-storage {
+        background-color: #f1f1f1;
+    }
+
+    /* 标签样式 */
+    /* 标签样式 */
+    .badge {
+        font-size: 0.75rem !important;
+        padding: 0.5em 1em !important;
+        border-radius: 5px !important;
+    }
+
+    /* On Sale 标签 - 橙色 */
+    .badge.bg-success {
+        background-color: #ff9800 !important;
+        /* 亮橙色，传达促销和活跃感 */
+    }
+
+    /* In Storage 标签 - 蓝灰色 */
+    .badge.bg-secondary {
+        background-color: #607d8b !important;
+        /* 蓝灰色，传达冷静和待处理状态 */
+    }
+
+    /* 商品栏背景样式 */
+    .product-section {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 60px 0;
+        border-radius: 10px;
+    }
+
+    .product-section .container {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+    }
+
+    /* 按钮基础样式 */
+    /* 按钮基础样式 */
+    .btn-primary {
+        padding: 15px 30px;
+        font-size: 1.25rem;
+        border-radius: 8px;
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    /* 悬停时的效果 */
+    .btn-primary:hover {
+        animation: gradient-reverse 0.5s forwards;
+        color: black;
+        /* 悬停时文字变为黑色 */
+        box-shadow: 0 8px 15px rgba(0, 114, 255, 0.3);
+        transform: translateY(-3px);
+    }
+
+    /* 点击时的效果 */
+    .btn-primary:active {
+        background: linear-gradient(45deg, #0062cc, #0056b3);
+        box-shadow: 0 5px 10px rgba(0, 114, 255, 0.2);
+        transform: translateY(1px);
+    }
+
+    /* 渐变反转动画 */
+    @keyframes gradient-reverse {
+        0% {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: white;
+        }
+
+        100% {
+            background: linear-gradient(45deg, #0072ff, #00c6ff);
+            color: black;
+        }
+    }
+</style>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="../homepage/homepage.html">
+                <img src='assets/img/1.svg' alt="Logo" style="height: 30px; margin-right: 10px;">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="homepage.html" style="font-weight: 700;">About</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="buy.html" style="font-weight: 700;">Buy</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sell.html" style="font-weight: 700;">My NFT</a></li>
+                    <li id="wallet" class="nav-item"><a class="nav-link" href="#signup"
+                            style="font-weight: 700;">Connect Wallet</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="background-color" style="padding-top: 6rem; padding-bottom: 6rem; height: 500px;">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder gradient-text" style="font-size: 4rem;">SEll YOUR NFT</h1>
+                <p class="lead fw-normal mb-0 gradient-text" style="font-size: 1.5rem;">Transform Your 3D Models into
+                    NFTs: Sell What You Have or Mint New Creations and Claim Ownership!</p>
+                <br><br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#webpageModal"
+                    style="padding: 15px 30px; font-size: 1.25rem; border-radius: 8px; background: linear-gradient(45deg, #00c6ff, #0072ff); border: none; color: white; transition: all 0.3s ease;">
+                    Create Your NFT Now
+                </button>
+                <div id="balance" class="balance-display"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="gradient-bar"></div>
+
+    <!-- Section-->
+    <section class="product-section">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <!-- Product Card for On Sale -->
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-sm">
+                        <div class="badge bg-success text-white position-absolute" style="top: 0.5rem; right: 0.5rem">On
+                            Sale</div>
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">Product 1</h5>
+                                <p class="text-muted">Status: Available</p>
+                                <div class="price mb-3">$40.00 - $80.00</div>
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex">
+                                <a class="btn action-btn-details flex-fill me-2" href="#">Details</a>
+                                <a class="btn action-btn-remove flex-fill ms-2" href="#">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card for In Warehouse -->
+                <div class="col mb-5">
+                    <div class="card h-100 shadow-sm in-storage">
+                        <div class="badge bg-secondary text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                            In Storage</div>
+                        <img class="card-img-top" src="https://dummyimage.com/450x300/c2c2c2/6c757d.jpg" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">Product 2</h5>
+                                <p class="text-muted">Status: Unlisted</p>
+                                <input type="text" class="form-control price-setting-input" placeholder="Price">
+                            </div>
+                        </div>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex">
+                                <a class="btn action-btn-details flex-fill me-2" href="#">Details</a>
+                                <a class="btn action-btn-list flex-fill ms-2" href="#">List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 模态框结构 -->
+    <div class="modal fade" id="webpageModal" tabindex="-1" role="dialog" aria-labelledby="webpageModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- 使用iframe加载原网页 -->
+                    <div class="iframe-container">
+                        <iframe src="test1-1.html" id="testIframe"></iframe>
+                    </div>
+                    <!-- 将关闭按钮放在模态框的右上角 -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="position: absolute; top: 10px; right: 10px; z-index: 1;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gradient-bar"></div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>

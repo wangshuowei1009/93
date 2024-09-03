@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint NFT on dev net</title>
+</head>
+
+<body>
+    <h2>Connect to Phantom Wallet</h2>
+    <button id="connectButton">Connect Wallet</button>
+
+    <h2>Check Wallet Balance</h2>
+    <button id="balanceButton">Check Balance</button>
+
+    <h2>Upload 3D Model and Create NFT</h2>
+
+    <label for="nftName">NFT Name:</label>
+    <input type="text" id="nftName" placeholder="Enter NFT name">
+    <br>
+
+    <label for="nftDescription">NFT Description:</label>
+    <input type="text" id="nftDescription" placeholder="Enter NFT description">
+    <br>
+
+    <label for="externalUrl">External URL (optional):</label>
+    <input type="text" id="externalUrl" placeholder="Enter external URL">
+    <br>
+
+    <label> Dimensions (optional, in cm):</label>
+    <br>
+    <label for="dimensionWidth">Width:</label>
+    <input type="number" id="dimensionWidth" placeholder="Enter width">
+    <br>
+    <label for="dimensionHeight">Height:</label>
+    <input type="number" id="dimensionHeight" placeholder="Enter height">
+    <br>
+    <label for="dimensionDepth">Depth:</label>
+    <input type="number" id="dimensionDepth" placeholder="Enter depth">
+    <br>
+
+    <label for="recommendedMaterial">Recommended Material (optional):</label>
+    <input type="text" id="recommendedMaterial" placeholder="Enter recommended material">
+    <br>
+
+    <label for="recommendedLayerHeight">Recommended Layer Height (optional):</label>
+    <input type="text" id="recommendedLayerHeight" placeholder="Enter recommended layer height">
+    <br>
+
+    <label for="sellerFee">Seller Fee Basis Points:</label>
+    <input type="number" id="sellerFee" placeholder="Enter fee basis points">
+    <br>
+
+    <h3>Upload 3D Model Files</h3>
+
+    <label for="previewImageInput">Upload Preview Image:</label>
+    <input type="file" id="previewImageInput" accept="image/*">
+    <br>
+
+    <label for="animationInput">Upload Animation File (optional):</label>
+    <input type="file" id="animationInput" accept=".glb,.gltf">
+    <br>
+
+    <label for="stlInput">Upload STL File:</label>
+    <input type="file" id="stlInput" accept=".stl">
+    <br>
+    <label for="stlDescription">STL Description (optional):</label>
+    <input type="text" id="stlDescription" placeholder="Enter STL file description">
+    <br>
+
+    <label for="objInput">Upload OBJ File:</label>
+    <input type="file" id="objInput" accept=".obj">
+    <br>
+    <label for="objDescription">OBJ Description (optional):</label>
+    <input type="text" id="objDescription" placeholder="Enter OBJ file description">
+    <br>
+
+    <label for="3mfInput">Upload 3MF File:</label>
+    <input type="file" id="3mfInput" accept=".3mf">
+    <br>
+    <label for="threeMfDescription">3MF Description (optional):</label>
+    <input type="text" id="threeMfDescription" placeholder="Enter 3MF file description">
+    <br>
+
+    <button id="estimateButton">Estimate Upload Cost</button>
+    <button id="uploadAndCreateNftButton">Upload Files and Create NFT</button>
+
+    <h2>Display Your NFTs</h2>
+    <button id="CountButton">Display NFT Count</button>
+    <button id="displayNftsButton">Display NFTs</button>
+    <div id="nftContainer"></div>
+
+    <h2>Listed NFTs on Auction House</h2>
+    <button id="displayListedNftsButton">Show Listed NFTs</button>
+    <div id="listedNftsContainer"></div>
+
+    <script src="bundle.js"></script>
+</body>
+
+</html>

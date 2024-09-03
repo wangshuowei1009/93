@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Roadmap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f6ef;
+            color: #333;
+            padding: 20px;
+        }
+
+        .roadmap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px 0;
+        }
+
+        .roadmap-item {
+            position: relative;
+            background-color: #ffcc6f;
+            color: #fff;
+            padding: 20px 40px;
+            text-align: center;
+            margin-right: -20px;
+            z-index: 1;
+            border-radius: 30px 0 0 30px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        .roadmap-item:nth-child(2) {
+            background-color: #a1a1a1;
+        }
+
+        .roadmap-item:nth-child(3) {
+            background-color: #75a84e;
+        }
+
+        .roadmap-item:nth-child(4) {
+            background-color: #4375a1;
+            border-radius: 0 30px 30px 0;
+        }
+
+        .roadmap-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -40px;
+            width: 0;
+            height: 0;
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 40px solid inherit;
+            z-index: 2;
+        }
+
+        .roadmap-item:first-child:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -40px;
+            width: 0;
+            height: 0;
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-right: 40px solid inherit;
+            z-index: 2;
+        }
+
+        .roadmap-item:last-child {
+            margin-right: 0;
+        }
+
+        .roadmap-item:last-child:after {
+            display: none;
+        }
+
+        .roadmap-item:first-child:before {
+            display: none;
+        }
+
+        .roadmap-text {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #333;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Development Roadmap</h1>
+    <div class="roadmap">
+        <div class="roadmap-item">
+            <h2>Solana mainnet</h2>
+            <div class="roadmap-text">
+                Deploy the project on the Solana mainnet and launch our own token through the Pump platform.
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <h2>Promotion</h2>
+            <div class="roadmap-text">
+                Launch the project on popular blockchains like Neo and Ethereum to enhance its visibility and promotion.
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <h2>NFT privatization</h2>
+            <div class="roadmap-text">
+                Privatize 3D data NFTs to ensure they are visible only to the owner, enhancing their utility.
+            </div>
+        </div>
+        <div class="roadmap-item">
+            <h2>NFT Leasing</h2>
+            <div class="roadmap-text">
+                On the basis of NFT privatization, we add value through NFT leasing, allowing only the owner to print
+                the 3D data.
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG 动态背景效果</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(180deg, #0a0d3d 0%, #0c2948 50%, #1b3d54 100%);
+            overflow: hidden;
+        }
+
+        .svg-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1600px;
+            /* 放大两倍 */
+            height: auto;
+            /* 高度自适应宽度 */
+            transform: translate(-50%, -50%);
+        }
+
+        .svg-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .blue-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #00bfff;
+            border-radius: 50%;
+            animation: float-up 4s infinite ease-in-out;
+            transform-origin: center;
+            opacity: 1;
+        }
+
+        /* 这里定义小圆点的位置和动画延迟 */
+        .blue-dot:nth-child(1) {
+            top: 30%;
+            left: 40%;
+            animation-delay: 0s;
+        }
+
+        .blue-dot:nth-child(2) {
+            top: 35%;
+            left: 60%;
+            animation-delay: 1s;
+        }
+
+        .blue-dot:nth-child(3) {
+            top: 40%;
+            left: 50%;
+            animation-delay: 2s;
+        }
+
+        .blue-dot:nth-child(4) {
+            top: 45%;
+            left: 45%;
+            animation-delay: 1.5s;
+        }
+
+        .blue-dot:nth-child(5) {
+            top: 50%;
+            left: 55%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(20px);
+                opacity: 1;
+            }
+
+            80% {
+                transform: translateY(-80px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-container">
+        <!-- SVG 容器 -->
+        <div class="svg-container">
+            <!-- 放大的用户插入SVG图像，居中显示 -->
+            <img src="./userListImage.svg" alt="SVG Image" class="svg-image">
+
+            <!-- 在SVG图像上的小蓝点 -->
+            <div class="blue-dot"></div>
+            <div class="blue-dot"></div>
+            <div class="blue-dot"></div>
+            <div class="blue-dot"></div>
+            <div class="blue-dot"></div>
+        </div>
+    </div>
+</body>
+
+</html>
